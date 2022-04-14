@@ -11,7 +11,10 @@ const appSecret = process.env['FACEBOOK_CLIENT_SECRET']
 const fbApiVersion = process.env.FACEBOOK_API_VERSION || 'v13.0'
 
 /* GET /api/v1/fb/login */
-router.get('/login', passport.authenticate('facebook'))
+router.get(
+	'/login',
+	passport.authenticate('facebook', { scope: ['email', 'catalog_management', 'business_management', 'public_profile'] })
+)
 
 /* GET /api/v1/fb/oauth2/redirect */
 router.get('/oauth2/redirect', async (req, res) => {

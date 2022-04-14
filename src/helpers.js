@@ -9,9 +9,11 @@ function handleAxiosError(error) {
 		console.log('Error Status: \n', error.response.status)
 		console.log('Error Headers: \n', error.response.headers)
 		if (error.response && error.response.data) {
-			const { data, message, Message, ErrorDescription } = error.response.data
+			const { error: err, data, message, Message, ErrorDescription } = error.response.data
 			if (data) {
 				msg = data
+			} else if (err) {
+				msg = err?.message
 			} else if (message || Message) {
 				msg = message || Message
 			} else if (ErrorDescription) {

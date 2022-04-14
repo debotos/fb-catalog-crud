@@ -1,4 +1,3 @@
-/* World Wide Leads Ltd. */
 const express = require('express')
 const axios = require('axios')
 const qs = require('qs')

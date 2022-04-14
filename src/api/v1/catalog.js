@@ -1,10 +1,8 @@
 const express = require('express')
 const axios = require('axios')
-const qs = require('qs')
-var passport = require('passport')
 
 const { fbAccessToken } = require('../../middlewares')
-const { handleAxiosError, getFullReqUrl } = require('../../helpers')
+const { handleAxiosError } = require('../../helpers')
 
 const router = express.Router()
 const fbApiVersion = process.env.FACEBOOK_API_VERSION || 'v13.0'

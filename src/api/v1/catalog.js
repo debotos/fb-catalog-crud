@@ -53,7 +53,9 @@ router.post('/:catalog_id/product/create', fbAccessToken, async (req, res) => {
 	} catch (error) {
 		console.log('Add product under catalog error:')
 		const message = handleAxiosError(error)
-		return res.status(400).send({ message })
+		if (typeof message === 'object' && message !== null) {
+			return res.status(400).send(message)
+		} else return res.status(400).send({ message })
 	}
 })
 

@@ -13,7 +13,7 @@ function handleAxiosError(error) {
 			if (data) {
 				msg = data
 			} else if (err) {
-				msg = err?.message
+				msg = err
 			} else if (message || Message) {
 				msg = message || Message
 			} else if (ErrorDescription) {
